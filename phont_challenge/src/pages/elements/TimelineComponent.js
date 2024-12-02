@@ -8,24 +8,42 @@ import "./../page.css"
 export const TimelineComponent = () => {
     const [currentSubtitle, setCurrentSubtitle] = useState(data[0].subtitle);
     const [linePosition, setLinePosition] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     const handleTimestampClick = (subtitle, e) => {
         setCurrentSubtitle(subtitle)
 
         const svg = document.getElementById("svg-canvas-id");
         const rect = svg.getBoundingClientRect();
-    
-        // Berechne die X-Position des Klicks relativ zum SVG
+
         const x = e.clientX - rect.left;
-    
-        // Setze die neue Linie oder lösche sie, falls bereits vorhanden
+
         setLinePosition(x);
 
     }
 
     useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.ctrlKey) {
+                setIsAnimating(true);
+                console.log("clicked ctrl")
+            }
+        };
 
-    },[])
+        const handleKeyUp = (event) => {
+            if (!event.ctrlKey) {
+                setIsAnimating(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("keyup", handleKeyUp);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("keyup", handleKeyUp);
+        };
+    }, []);
 
     const calculateStartingPoint = (index) => {
         let sum = 0;
@@ -43,7 +61,10 @@ export const TimelineComponent = () => {
         <>
             <div className="video-container"></div>
             <div className="timeline-text-container">
-                <div className="currentSubtitle">{currentSubtitle}</div>
+                <div className={`currentSubtitle `}>
+                    <div className={isAnimating ? "animate" : ""}>
+                        {currentSubtitle}</div>
+                </div>
             </div>
             <div className="timeline-container">
                 <svg className='svg-canvas' id="svg-canvas-id">
@@ -65,14 +86,14 @@ export const TimelineComponent = () => {
 
                     ))}
                     <line
-                    x1={linePosition}
-                    y1={0}
-                    x2={linePosition}
-                    y2={300}
-                    stroke="white"
-                    stroke-width="2"
+                        x1={linePosition}
+                        y1={0}
+                        x2={linePosition}
+                        y2={300}
+                        stroke="white"
+                        stroke-width="2"
                     >
-                        
+
                     </line>
 
                 </svg>

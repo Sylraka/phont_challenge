@@ -1,8 +1,8 @@
 import "./page.css"
 
 import { TimelineComponent } from "./elements/TimelineComponent"
-import { NavComponent} from "./NavComponent"
-import { InputComponent } from "./InputComponent";
+import { NavComponent} from "./elements/NavComponent"
+import { InputComponent } from "./elements/InputComponent";
 
 export const TimelinePage = () => {
 
@@ -16,10 +16,6 @@ export const TimelinePage = () => {
                     <div ><TimelineComponent /></div>
 
             </div>
-            {/* <div className="page">
-                
-
-            </div> */}
 
         </>
     )
