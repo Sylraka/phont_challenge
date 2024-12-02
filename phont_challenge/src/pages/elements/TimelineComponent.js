@@ -4,7 +4,7 @@ import React from "react"
 import { Chrono } from "react-chrono";
 
 import data from "./../../data/timelinedata.json"
-import "./../TimelinePage.css"
+import "./../page.css"
 
 export const TimelineComponent = () => {
     const [currentSubtitle, setCurrentSubtitle] = useState("subtitle");
@@ -14,7 +14,7 @@ export const TimelineComponent = () => {
         setCurrentSubtitle(subtitle)
     }
 
-    const calculateStartingPoint = (index) =>  { 
+    const calculateStartingPoint = (index) => {
         let sum = 0;
         for (let j = 0; j < data.length; j++) {
             const timepiece = data[j];
@@ -23,40 +23,38 @@ export const TimelineComponent = () => {
                 break;
             }
         }
-        return sum; 
+        return sum;
     }
 
     return (
         <>
-            {/* {data.map(timepiece => (
-                <div>{timepiece.start_time}</div>
+            <div className="video-container"></div>
+            <div className="timeline-text-container">
+                <div className="currentSubtitle">{currentSubtitle}</div>
+            </div>
+            <div className="timeline-container">
 
-            ))} */}
-            {/* <div style={{ width: "90vw", height: "980vh" }}>
-                <Chrono items={timelineItems} 
-                />
-            </div> */}
-            <div className="currentSubtitle">{currentSubtitle}</div>
-            <svg className='svg-canvas' id="svg-canvas-id">
+                <svg className='svg-canvas' id="svg-canvas-id">
 
 
-                {data.map((timepiece,index) => (
+                    {data.map((timepiece, index) => (
 
-                    <rect
-                    x={calculateStartingPoint(index)}
-                    y={35}
-                    width={(timepiece.end_time-timepiece.start_time)*10 }
-                    height={50}
-                    fill='#3399ff'
-                    stroke='white'
-                    strokeWidth='1'
-                    className='focusPoints'
-                    onClick={e => handleTimestampClick(timepiece.subtitle)}
-                    >{timepiece.start_time}</rect>
+                        <rect
+                            x={calculateStartingPoint(index)}
+                            y={35}
+                            width={(timepiece.end_time - timepiece.start_time) * 10}
+                            height={50}
+                            fill='#3399ff'
+                            stroke='white'
+                            strokeWidth='1'
+                            className='focusPoints'
+                            onClick={e => handleTimestampClick(timepiece.subtitle)}
+                        >{timepiece.start_time}</rect>
 
-                ))}
+                    ))}
 
-            </svg>
+                </svg>
+            </div>
         </>
     )
 }

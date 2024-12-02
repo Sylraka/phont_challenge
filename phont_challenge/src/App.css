@@ -37,5 +37,15 @@
   }
 }
 body{
-  background-color: #282c34!important;
+  background-color: #4e3258!important;
+  color: white!important;
+}
+
+ul{
+  list-style-type: none;
+  text-align: left;
+}
+
+li{
+  padding: 10px;
 }

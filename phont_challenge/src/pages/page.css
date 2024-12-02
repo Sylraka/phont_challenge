@@ -1,0 +1,73 @@
+.page{
+    width:90vw;
+    height: 90vh;
+    border:1px solid white;
+    margin: 5vw;
+}
+
+.svg-canvas {
+    position: relative;
+    pointer-events: auto;
+    z-index: 10;
+    width: 90vw;
+    height: 20vh;
+  }
+
+  .currentSubtitle {
+    /* color: white; */
+  }
+ 
+.navUl {
+  margin-top: 100px;
+}
+
+.nav-component{
+  background-color: black;
+  height: 100vh;
+  width: 20vw;
+}
+
+.grid-container {
+  margin: 0px!important;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.input-container{
+  background-color: rgb(9, 9, 9);
+  opacity: 50%;
+  width: 25vw;
+  height: 95vh;
+  border-radius:10px;
+  margin: 10px;
+
+}
+
+.video-container{
+  background-color: rgb(9, 9, 9);
+  opacity: 50%;
+  border-radius:10px;
+  width: 51vw;
+  height: 500px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.timeline-text-container{
+  background-color: rgb(9, 9, 9);
+  border-radius:10px;
+  width: 51vw;
+  height: 200px;
+  margin-top: 10px;
+  margin-right: 20px;
+} 
+.timeline-container{
+  background-color: rgb(9, 9, 9);
+  opacity: 50%;
+  border-radius:10px;
+  width: 51vw;
+  height: 300px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
