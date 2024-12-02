@@ -9,12 +9,12 @@
     position: relative;
     pointer-events: auto;
     z-index: 10;
-    width: 90vw;
-    height: 20vh;
+    width: 45vw;
+    margin: 50px;
   }
 
   .currentSubtitle {
-    /* color: white; */
+    padding: 80px;
   }
  
 .navUl {

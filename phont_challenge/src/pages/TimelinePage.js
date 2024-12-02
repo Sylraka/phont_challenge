@@ -13,7 +13,7 @@ export const TimelinePage = () => {
 
                     <div className="nav-component"><NavComponent/></div>
                     <div ><InputComponent/></div>
-                    <div xs={6}><TimelineComponent /></div>
+                    <div ><TimelineComponent /></div>
 
             </div>
             {/* <div className="page">
