@@ -73,6 +73,7 @@ export const TimelineComponent = () => {
                     {data.map((timepiece, index) => (
 
                         <rect
+                            key={timepiece.start_time}
                             x={calculateStartingPoint(index) - ((timepiece.end_time - timepiece.start_time) * 30)}
                             y={35}
                             width={(timepiece.end_time - timepiece.start_time) * 30}
@@ -91,7 +92,7 @@ export const TimelineComponent = () => {
                         x2={linePosition}
                         y2={300}
                         stroke="white"
-                        stroke-width="2"
+                        strokeWidth="2"
                     >
 
                     </line>
